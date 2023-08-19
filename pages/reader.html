@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epub Reader</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/settings.css">
+    <link rel="stylesheet" href="/css/reader.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="/js/epub.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">EPUB Reader</div>
+            <div class="settings-icon" onclick="toggleSettingsWindow()">⚙️</div>
+        </nav>
+    </header>
+    <main>
+        <div id="area" class="centered"></div>
+
+        <div style="width:100px;height:100px;position: absolute;top: 50%; right:0px;margin-top: -32px;font-size: 64px;color: #E2E2E2;font-weight: bold;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;user-select: none;" onclick="Next();">></div>
+		<div style="width:100px;height:100px;position: absolute;top: 50%; left:40px;margin-top: -32px;font-size: 64px;color: #E2E2E2;font-weight: bold;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;user-select: none;" onclick="Prev();"><</div>
+    
+        <div class="settings-window" id="settingsWindow">
+            <h2>Settings</h2>
+            <label for="theme">Select Theme:</label>
+            <select id="theme" onchange="changeTheme()">
+                <option value="Nord">Nord</option>
+                <option value="Light">Light</option>
+                <option value="Dark">Dark</option>
+            </select>
+        </div>
+    
+    </main>
+</body>
+
+<script src="/js/reader.js"></script>
+<script src="/js/settings.js"></script>
+
+</html>

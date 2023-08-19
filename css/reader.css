@@ -1,0 +1,11 @@
+.book {
+    background-color: #4c566a;
+    color: #eceff4;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.book-content {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
