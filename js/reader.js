@@ -1,4 +1,4 @@
-var book = ePub("/epub/pg100-images-3.epub");
+var book = ePub("../epub/pg100-images-3.epub");
 var rendition = book.renderTo("area", {width: 1200, height: 800});
 
 rendition.themes.default({
