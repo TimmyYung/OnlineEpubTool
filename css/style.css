@@ -24,24 +24,10 @@ nav {
     font-weight: bold;
 }
 
-
-
-.book {
-    background-color: #4c566a;
-    color: #eceff4;
-    padding: 2rem;
-    border-radius: 10px;
-}
-
 h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #8fbcbb;
-}
-
-.book-content {
-    font-size: 1.2rem;
-    line-height: 1.6;
 }
 
 .centered{
@@ -49,41 +35,7 @@ h1 {
     place-items:center;
 }
 
-.settings-icon {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.settings-window {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #4c566a;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
-}
-
-.settings-window h2 {
-    margin-top: 0;
-    color: #8fbcbb;
-}
-
-.settings-window label {
-    color: #eceff4;
-}
-
-.settings-window select {
-    color: #4c566a;
-}
-
-button {
+.button {
     margin-top: 10px;
     padding: 10px 20px;
     background-color: #8fbcbb;
