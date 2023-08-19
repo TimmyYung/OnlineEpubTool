@@ -17,8 +17,8 @@ Welcome to the EPUB Reader website! This web application allows you to read EPUB
 
 ## Installation
 
-1. Clone this repository: `git clone https://github.com/your-username/epub-reader-website.git`
-2. Navigate to the project directory: `cd epub-reader-website`
+1. Clone this repository: `git clone https://github.com/TimmyYung/OnlineEpubTool.git`
+2. Navigate to the project directory: `cd OnlineEpubTool`
 3. Open the `index.html` file in your preferred browser.
 
 ## Credits
