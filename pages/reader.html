@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="../css/reader.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
     <script src="../js/epub.min.js"></script>
+    <script src="../js/script.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">EPUB Reader</div>
-            <div class="settings-icon" onclick="toggleSettingsWindow()">⚙️</div>
-        </nav>
+    <header class="hidden">
+            <nav>
+                <a href="../index.html">
+                    <div class="logo-header">EPUB Reader</div>
+                </a>
+                <div class="settings-icon" onclick="toggleSettingsWindow()">⚙️</div>
+            </nav>
     </header>
     <main>
         <div id="area" class="centered"></div>

@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Proxima+Nova');
+:root {
+    --primary-color: mediumslateblue;
+  }
+
+* {
+    box-sizing: border-box;
+  }
+
 body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial sans-serif;
     background-color: #2e3440;
     color: #eceff4;
     margin: 0;
@@ -18,7 +27,8 @@ nav {
     padding: 0 2rem;
 }
 
-.logo {
+.logo-header {
+    display: inline-block; 
     font-size: 1.5rem;
     color: #8fbcbb;
     font-weight: bold;
@@ -43,4 +53,126 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width:100px;
+}
+
+section{
+    display:grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+}
+
+div.logo h1,
+div.logo h2,
+div.logo h3,
+div.logo p {
+    margin: -2rem;
+}
+
+.logos{
+    display: flex;
+}
+
+.card{
+    width: 200px;
+    height:200px;
+    position: relative; 
+    background-color: rgb(16 16 16);
+    border: 1px solid rgb(255 255 255 / 5%);
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin-right:10px;
+}
+
+.card:after {  
+    content: "";
+    height: 70px;
+    width: 1px;  
+    position: absolute;  
+    left: -1px;
+    top: 65%;
+    transition: top, opacity;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
+    background: linear-gradient(
+      transparent,
+      var(--primary-color),
+      transparent
+    );
+    opacity: 0;
+  }
+
+  .card:after {  
+    top: 65%;
+    opacity: 0;
+  }
+  
+  .card:hover:after {
+    top: 25%;
+    opacity: 1;
+  }
+
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.1) 1px, 
+      transparent 1px
+    );
+    background-position: 50% 50%;
+    background-size: 1.1rem 1.1rem;
+    padding: 4rem;
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
+
+  
+.logo > :is(h1, h3, p) {
+    text-align: center;
+  }
+  
+  .logo> h1 {
+    color: rgb(250 249 246); 
+    font-size: 2.6rem;
+  }
+  
+  .logo> h3 {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 0.76rem;
+  }
+  
+  .logo > p {
+    color: rgb(255 255 255 / 75%);
+    line-height: 1.5rem;
+  }
+    
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-10%);
+    transition: all 1s; 
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform:translateX(0);
+}
+
+.card:nth-child(2){
+    transition-delay:200ms;
+}
+
+.card:nth-child(3){
+    transition-delay:400ms; 
+}
+
+.card:nth-child(4){
+    transition-delay:600ms;  
 }
