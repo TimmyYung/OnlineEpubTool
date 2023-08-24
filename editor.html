@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epub Editor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/settings.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="../js/epub.min.js"></script>
+</head>
+<style>
+/* Reset default margins and paddings */
+body, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Center the content */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #2e3440;
+}
+
+.metadata-container {
+  background-color: #3b4252;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  width: 300px;
+}
+
+.metadata-element {
+  margin-bottom: 16px;
+}
+
+.metadata-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #d8dee9;
+}
+
+.metadata-value {
+  font-size: 14px;
+  color: #e5e9f0; 
+}
+
+</style>
+
+<body>
+    <header class="hidden">
+        <nav>
+            <a href="../index.html">
+                <div class="logo-header">EPUB Reader</div>
+            </a>
+        </nav>
+    </header>
+
+    <form id="fileUploadForm">
+        <input type="file" name="upload" />
+        <input type="submit" value="Upload" />
+     </form>
+    
+     <div id="metadataContainer" class="metadata-container"></div>
+
+    <script>
+        const form = document.getElementById("fileUploadForm");
+        const metadataContainer = document.getElementById("metadataContainer");
+
+        form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const input = document.querySelector('input[type="file"]');
+        const file = input.files[0];
+
+        const reader = new FileReader();
+
+        reader.onload = async (event) => {
+            const fileContent = event.target.result;
+
+            try {
+            const book = ePub(fileContent);
+
+            await book.ready;
+
+            const metadata = book.package.metadata;
+
+            // Clear previous metadata content
+            metadataContainer.innerHTML = "";
+
+            // Create HTML elements to display metadata
+            const titleElement = document.createElement("p");
+            titleElement.textContent = "Title: " + metadata.title;
+            metadataContainer.appendChild(titleElement);
+
+            const authorElement = document.createElement("p");
+            authorElement.textContent = "Author: " + metadata.creator;
+            metadataContainer.appendChild(authorElement);
+
+            const descriptionElement = document.createElement("p");
+            descriptionElement.textContent = "Description: " + metadata.description;
+            metadataContainer.appendChild(descriptionElement);
+
+            const publisherElement = document.createElement("p");
+            publisherElement.textContent = "Publisher: " + metadata.publisher;
+            metadataContainer.appendChild(publisherElement);
+
+            const publicationDateElement = document.createElement("p");
+            publicationDateElement.textContent = "Publication Date: " + metadata.date;
+            metadataContainer.appendChild(publicationDateElement);
+
+            // Close the book
+            book.destroy();
+            form.reset();
+            } catch (error) {
+            console.error("Error:", error);
+            }
+        };
+
+        reader.readAsArrayBuffer(file);
+        });
+    </script>
+
+</body>
+</html>
