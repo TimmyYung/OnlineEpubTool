@@ -63,6 +63,10 @@ section{
     min-height: 100vh;
 }
 
+div.logo h1{
+  font-size:2rem;
+}
+
 div.logo h1,
 div.logo h2,
 div.logo h3,
@@ -120,13 +124,15 @@ div.logo p {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    height: 165px;
+    width: 165px;
     background-image: radial-gradient(
       rgba(255, 255, 255, 0.1) 1px, 
       transparent 1px
     );
     background-position: 50% 50%;
     background-size: 1.1rem 1.1rem;
-    padding: 4rem;
+    padding: 3rem;
     border-radius: 1.25rem;
     overflow: hidden;
 }
